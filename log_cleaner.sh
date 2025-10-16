@@ -116,7 +116,7 @@ get_filesystem_info() {
         return 1
     fi
     
-    # 🔍 Парсим данные для macOS
+    # Парсим данные для macOS
     FS_TOTAL_KB=$(echo "$fs_info" | awk '{print $2}')    # Общий размер
     FS_USED_KB=$(echo "$fs_info" | awk '{print $3}')     # Использовано
     # shellcheck disable=SC2034
