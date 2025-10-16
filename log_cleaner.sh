@@ -203,7 +203,7 @@ find_oldest_files() {
             continue
         fi
         
-        # 📏 Получаем размер файла в KB (для macOS)
+        # Получаем размер файла в KB (для macOS)
         local size_kb
         size_kb=$(( $(stat -f%z "$file" 2>/dev/null) / 1024 ))
         
@@ -214,7 +214,7 @@ find_oldest_files() {
         files+=("$file")
         current_size=$((current_size + size_kb))
         
-        # 🎯 Проверяем, достигли ли целевого размера
+        # Проверяем, достигли ли целевого размера
         if [ "$(echo "$current_size" | awk '{print int($1)}')" -ge "$(echo "$target_size" | awk '{print int($1)}')" ]; then
             info "Достигнут целевой размер: $current_size KB >= $target_size KB"
             break
